@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet, TextInput, Button} from 'react-native';
+import {ScrollView, View, Text, StyleSheet, TextInput, Button, Image} from 'react-native';
 import Header from './components/Header';
 
 
@@ -8,25 +8,46 @@ const styles = StyleSheet.create({
     appContainer: {
         flex: 1,
         padding: 10,
-        justifyContent: 'center',
-        //alignItems: 'center',
         backgroundColor: 'white'
+    },
+    imageContainer: {
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    formContainer: {
+        padding: 10,
+        textAlign: 'left',
+        color: 'white',
     },
     text: {
         color: 'black',
         fontSize: 20,
         padding: 10,
-        //alignItems: 'center'
+        textAlign: 'center'
+    },
+    fixToText: {
+        flexDirection: 'row',
+        justifyContent: 'space-between'
     },
     label: {
         color: 'black',
         fontSize: 12,
-        marginLeft: 25
+        marginLeft: 25,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    image: {
+        marginTop: 0,
+        maxWidth: 150,
+        maxHeight: 100,
+        justifyContent: 'center',
+        alignItems: 'center'
     },
     link: {
         color: 'blue',
         fontSize: 14,
-        padding: 10
+        padding: 10,
+        textAlign: 'center'
     },
     textInput : {
         width: '80%',
@@ -39,11 +60,10 @@ const styles = StyleSheet.create({
         marginTop: 10,
         alignItems: 'center'
     },
-    button : {
+    buttonContainer : {
         color: 'black',
-        margin : 20,
-        padding : 20,
-        width: '80%'
+        paddingLeft : 35,
+        paddingRight : 40,
     }
 });
 
@@ -52,22 +72,28 @@ const styles = StyleSheet.create({
 //Main App Function
 const App = () => {
     return (
-        <View style={styles.appContainer}>
-            <Header />
-
-            <Text style={styles.text}>Become a Member</Text>
-            <Text style={styles.link}>Already a Member? Login</Text>
-            <Text style={styles.label}>First Name</Text>
-            <TextInput style={styles.textInput} placeholder="Johnson" />
-            <Text style={styles.label}>Last Name</Text>
-            <TextInput style={styles.textInput} placeholder="Darey" />
-            <Text style={styles.label}>Email ID</Text>
-            <TextInput style={styles.textInput} placeholder="Dareyjohn@member.com" />
-            <Text style={styles.label}>Password</Text>
-            <TextInput style={styles.textInput} placeholder="**********" />
-
-            <Button title="Continue"></Button>
-        </View>
+            <ScrollView>
+                <View style={styles.appContainer}>
+                    <View style={styles.imageContainer}>
+                        <Image source={require('./logo.png')} title="Profile Image" style={styles.image}/>
+                        <Text style={styles.text}>Become a Member</Text>
+                        <Text style={styles.link}>Already a Member? Login</Text>
+                    </View>
+                    <View style={styles.formContainer}>
+                        <Text style={styles.label}>First Name</Text>
+                        <TextInput style={styles.textInput} placeholder="Johnson" />
+                        <Text style={styles.label}>Last Name</Text>
+                        <TextInput style={styles.textInput} placeholder="Darey" />
+                        <Text style={styles.label}>Email ID</Text>
+                        <TextInput style={styles.textInput} placeholder="Dareyjohn@member.com" />
+                        <Text style={styles.label}>Password</Text>
+                        <TextInput style={styles.textInput} placeholder="**********" />
+                    </View>
+                    <View style={styles.buttonContainer}>
+                    <Button title="Continue" color="#841584"/*onPress={OnPressLearnMore}*/ accessibilityLabel="Register" ></Button>
+                    </View>
+                </View>
+            </ScrollView>
     );
 }
 

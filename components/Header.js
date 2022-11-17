@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {Image, View, Text, StyleSheet} from 'react-native';
 
 
 
@@ -7,7 +7,7 @@ import {View, Text, StyleSheet} from 'react-native';
 const styles = StyleSheet.create({
     header: {
         top: 0,
-        height: 50,
+        height:70,
         padding: 10,
         //justifyContent: 'center',
         //alignItems: 'center',
@@ -20,9 +20,9 @@ const styles = StyleSheet.create({
         paddingLeft: 50
     },
     favicon: {
-        borderRadius: '50%',
-        maxWidth: 70,
-        maxHeight: 50
+        radius: '50%',
+        maxWidth:50,
+        maxHeight: 30
     }
 });
 
@@ -32,6 +32,7 @@ const styles = StyleSheet.create({
 const Header = () => {
     return (
         <View style={styles.header}>
+            <Image source={require('./logo.png')} title="Profile Image" style={styles.favicon}/>
             <Text style={styles.text}>Fondo Expreso</Text>
         </View>
     );
