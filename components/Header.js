@@ -8,7 +8,7 @@ import {Image, View, Text, StyleSheet} from 'react-native';
 const Header = () => {
     return (
         <View style={styles.header}>
-            <Image source={require('./logo.png')} title="Profile Image" style={styles.favicon}/>
+            <Image source={require('../assets/images/logo.png')} title="Official Logo" style={styles.favicon}/>
             <Text style={styles.text}>Fondo Expreso</Text>
         </View>
     );
@@ -38,7 +38,8 @@ const styles = StyleSheet.create({
     favicon: {
         radius: '50%',
         maxWidth:70,
-        maxHeight: 50
+        maxHeight: 50,
+        padding: 5
     }
 });
 
