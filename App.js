@@ -1,5 +1,5 @@
 import React from 'react';
-import {SafeAreaView, ScrollView, View, Text, StyleSheet, TextInput, Button, Image} from 'react-native';
+import {SafeAreaView, ScrollView, View, Text, StyleSheet, TextInput, TouchableOpacity, Image} from 'react-native';
 
 
 
@@ -8,20 +8,15 @@ const App = () => {
     return (
         <SafeAreaView style={styles.appContainer}>
             <ScrollView>
+                <Text style={styles.smallText}>Your Number One Utility Payment Platform In Africa! </Text>
                 <View style={styles.imageContainer}>
                     <Image source={require('./assets/images/logo.png')} title="Splash Image" style={styles.image}/>
                 </View>
                 <View style={styles.buttonContainer}>
-                    <Button
-                    title="Register"
-                    color="#595959"
-                    onPress={() => {
-                    setEmpty(true);
-                    }}
-                    accessibilityLabel="Register"/>
+                     <TouchableOpacity style={styles.btn}>
+                        <Text style={styles.btnText}>Let's Get You Started</Text>
+                     </TouchableOpacity>
                 </View>
-                    <Text style={styles.link}>Already a Member? Login</Text>
-                    <Text style={styles.smallText}>Your Number One Utility Payment Platform In Africa! </Text>
             </ScrollView>
         </SafeAreaView>
     );
@@ -49,8 +44,8 @@ const styles = StyleSheet.create({
     },
     smallText: {
         color: '#595959',
-        fontSize: 12,
-        padding: 40,
+        fontSize: 20,
+        margin: 40,
         textAlign: 'center'
     },
     fixToText: {
@@ -73,11 +68,25 @@ const styles = StyleSheet.create({
         textAlign: 'center'
     },
     buttonContainer : {
-        color: 'black',
-        marginTop : 100,
-        paddingLeft : 30,
-        paddingRight : 30,
+        color: '#595959',
         margin : 20,
+        fontFamily: 'Quicksand'
+    },
+    btn : {
+        width: '80%',
+        textColor: '#fff',
+        backgroundColor: '#595959',
+        borderRadius: 10,
+        padding: 20,
+        margin: 30,
+        fontFamily: 'Quicksand',
+        fontWeight: 600,
+        justifyContent: 'space-between',
+        flexDirection: 'row',
+    },
+    btnText : {
+        color: '#fff',
+        fontFamily: 'Quicksand'
     }
 });
 
