@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {ScrollView, View, Text, StyleSheet, TextInput, Button, Image} from 'react-native';
+import {SafeAreaView, ScrollView, View, Text, StyleSheet, TextInput, Button, Image} from 'react-native';
 import Header from './components/Header';
 
 
@@ -7,6 +7,44 @@ import Header from './components/Header';
 const validate = (props) => {
     const [empty, setEmpty] = useState(true);
 }
+
+
+//Main App Function
+const App = () => {
+    return (
+        <SafeAreaView style={styles.appContainer}>
+            <Header />
+            <ScrollView>
+                <View>
+                    <Text style={styles.text}>Member Registration</Text>
+                    <Text style={styles.smallText}>Fill The Form Fields Below To Become A Member</Text>
+
+                    <Text style={styles.label}>First Name</Text>
+                    <TextInput style={styles.textInput} placeholder="Johnson" />
+                    <Text style={styles.label}>Last Name</Text>
+                    <TextInput style={styles.textInput} placeholder="Darey" />
+                    <Text style={styles.label}>Email ID</Text>
+                    <TextInput style={styles.textInput} placeholder="Dareyjohn@member.com" />
+                    <Text style={styles.label}>Password</Text>
+                    <TextInput style={styles.textInput} placeholder="**********" />
+
+                    <View style={styles.buttonContainer}>
+                        <Button
+                        title="Continue"
+                        color="#595959"
+                        onPress={() => {
+                        setEmpty(true);
+                        }}
+                        accessibilityLabel="Register"/>
+                        <Text style={styles.link}>Already a Member? Login</Text>
+                        <Text style={styles.smallText}>Your Number One Utility Payment Platform In Africa! </Text>
+                    </View>
+                </View>
+            </ScrollView>
+        </SafeAreaView>
+    );
+}
+
 
 //CSS Styling Of The App
 const styles = StyleSheet.create({
@@ -26,22 +64,25 @@ const styles = StyleSheet.create({
         color: 'black',
         fontSize: 20,
         padding: 10,
-        textAlign: 'center'
+        textAlign: 'center',
+        fontFamily: 'Quicksand'
     },
     smallText: {
         color: 'black',
         fontSize: 12,
         paddingBottom: 40,
-        textAlign: 'center'
+        textAlign: 'center',
+        fontFamily: 'Quicksand'
     },
     fixToText: {
         flexDirection: 'row',
         justifyContent: 'space-between'
     },
     label: {
-        color: 'black',
+        color: '#595959',
         fontSize: 12,
         marginLeft: 25,
+        fontFamily: 'Quicksand'
     },
     image: {
         borderRadius: 100 / 2,
@@ -53,16 +94,17 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     link: {
-        color: 'blue',
+        color: '#595959',
         fontSize: 14,
         padding: 20,
-        textAlign: 'center'
+        textAlign: 'center',
+        fontFamily: 'Quicksand'
     },
     textInput : {
         width: '70%',
         height: 40,
         borderRadius: 5,
-        borderColor: '#000',
+        borderColor: '#595959',
         paddingLeft : 30,
         borderWidth: 1,
         marginBottom: 15,
@@ -71,50 +113,13 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     buttonContainer : {
-        color: 'black',
+        color: '#595959',
         paddingLeft : 30,
         paddingRight : 30,
         margin : 20,
+        fontFamily: 'Quicksand'
     }
 });
-
-
-
-//Main App Function
-const App = () => {
-    return (
-        <SafeAreaView style={styles.appContainer}>
-            <ScrollView>
-                <View>
-                    <Image source={require('./logo.png')} title="Profile Image" style={styles.image}/>
-                    <Text style={styles.text}>Member Registration</Text>
-                    <Text style={styles.smallText}>Fill The Form Fields Below To Become A Member</Text>
-
-                    <Text style={styles.label}>First Name</Text>
-                    <TextInput style={styles.textInput} placeholder="Johnson" />
-                    <Text style={styles.label}>Last Name</Text>
-                    <TextInput style={styles.textInput} placeholder="Darey" />
-                    <Text style={styles.label}>Email ID</Text>
-                    <TextInput style={styles.textInput} placeholder="Dareyjohn@member.com" />
-                    <Text style={styles.label}>Password</Text>
-                    <TextInput style={styles.textInput} placeholder="**********" />
-
-                    <View style={styles.buttonContainer}>
-                        <Button
-                        title="Continue"
-                        color="#841584"
-                        onPress={() => {
-                        setEmpty(true);
-                        }}
-                        accessibilityLabel="Register"/>
-                        <Text style={styles.link}>Already a Member? Login</Text>
-                        <Text style={styles.smallText}>The Number One Utility Payment Platform In Africa! </Text>
-                    </View>
-                </View>
-            </ScrollView>
-        </SafeAreaView>
-    );
-}
 
 
 
